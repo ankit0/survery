@@ -1,0 +1,1 @@
+json.array! @survey_data, partial: 'survey_data/survey_datum', as: :survey_datum

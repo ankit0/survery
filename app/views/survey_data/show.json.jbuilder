@@ -1,0 +1,1 @@
+json.partial! "survey_data/survey_datum", survey_datum: @survey_datum

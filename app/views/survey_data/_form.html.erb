@@ -1,0 +1,153 @@
+<%= form_for(survey_datum) do |f| %>
+  <% if survey_datum.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(survey_datum.errors.count, "error") %> prohibited this survey_datum from being saved:</h2>
+
+      <ul>
+      <% survey_datum.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+ 
+    <div class= "form-group">
+      <h3> About Yourself </h3>
+    </div>    
+    
+       <p>
+          <b>1.</b>  <%= f.label :state, "State" %>
+          <%= f.text_field :state , :class=>"form-contro", :placeholder=>"state"%>       
+          <b>2.</b>  <%= f.label :city, "Vidhan sabha/City" %>
+          <%= f.text_field :city %>
+          <b>3.</b>  <%= f.label :geography, "Geography" %>
+
+              <% ['Urban', 'Rural'].each do |geography| %>
+                  <%= f.radio_button :geography, geography%>
+                  <%= geography%>
+              <% end %>
+        </p>     
+                                  
+       <p>
+          <b>4.</b>  <%= f.label :name, "Name" %>
+          <%= f.text_field :name %>
+          <b>5.</b>  <%= f.label :phone_no, "Phone No" %>
+          <%= f.text_field :phone_no %>
+       </p>
+       <p>
+          <b>6.</b>  <%= f.label :address, "Address" %>
+          <%= f.text_area :address %>
+
+          <b>7.</b>  <%= f.label :number_of_family_member, "Number of Family Member" %>
+          <%= f.text_field :number_of_family_member %>
+          
+          <b>8.</b>  <%= f.label :gender, "Gender" %>
+
+                <%= f.radio_button :gender, 'male' %>&nbsp;Male
+
+                <%= f.radio_button :gender, 'female' %>&nbsp;Female
+       </p>
+       <p>
+          <b>9.</b> <%= f.label :age, "Age" %>
+               <% [ '12-17', '18-25', '26-35', '36-50', '50-60','60 & above' ].each do |age| %>
+                 <%= f.radio_button 'age',  age %>
+                     <%= age%>
+                <% end %>
+       </p>
+       <p>
+          <b>10.</b>  <%= f.label :caste, "Caste" %>
+               <% [ 'ST', 'SC', 'Muslim', 'OBC', 'Vaish','Shatriya' ].each do |caste| %>
+                 <%= f.radio_button 'caste', caste %>
+                     <%= caste%>
+                <% end %>
+       </p>
+       <p>
+          <b>11.</b>  <%= f.label :family_montly_income, "Family Monthly Income" %>
+              <% [ 'Below 5,000', '5-10,000', '10-20,000', '20-30,000', '30,000 & above' ].each do |family_montly_income| %>
+                 <%= f.radio_button 'family_montly_income', family_montly_income %>
+                     <%= family_montly_income%>
+              <% end %>
+       </p>
+       <p>
+          <b>12.</b>  <%= f.label :occupation, "Occupation" %>
+               <% ['unemployed','housewife','student','worker','farmer','buisness','private service','govt service'].each do |occupation| %>
+                 <%= f.radio_button 'occupation',  occupation %>
+                     <%= occupation%>
+               <% end %>
+       </p>
+       <p>
+          <b>13.</b>  <%= f.label :monthly_recharge_spend, "Monthly Recharge Spend" %>
+               <% ['0-100','100-200','200-500','500 & above'].each do |monthly_recharge_spend| %>
+                 <%= f.radio_button 'monthly_recharge_spend', monthly_recharge_spend %>
+                     <%= monthly_recharge_spend%>
+               <% end %>
+       </p>
+       <p>
+          <b>14.</b>  <%= f.label :internet_usage, "Internet Usage" %>
+               <% ['home','office','panchyat','cyber_cafe','mobile','do not use'].each do |internet_usage| %>
+                 <%= f.radio_button 'internet_usage',  internet_usage %>
+                     <%= internet_usage%>
+               <% end %>
+       </p>
+       <p>
+          <b>15.</b>  <%= f.label :hospital, "Hospital" %>
+               <% ['government','private','self medication','local doctor'].each do |hospital| %>
+                 <%= f.radio_button 'hospital', hospital %>
+                     <%= hospital%>
+               <% end %>
+       </p>
+       <p>
+          <b>16.</b>  <%= f.label :school, "School" %>
+               <% ['government','private','tution','not studying'].each do |school| %>
+                 <%= f.radio_button 'school',  school %>
+                     <%= school%>
+               <% end %>
+       </p>
+       <p>
+          <b>17.</b>  <%= f.label :vehicle, "Vehicle" %>
+               <% ['cycle','motor','car','public transport'].each do |vehicle| %>
+                 <%= f.radio_button 'vehicle', vehicle %>
+                     <%= vehicle%>
+               <% end %>
+       </p>
+       <p>
+          <b>18.</b>  <%= f.label :computer_usage, "Computer Usage" %>
+            <%= f.radio_button :computer_usage, 'yes' %> Yes
+            <%= f.radio_button :computer_usage, 'no' %> No
+           <b>19.</b>  <%= f.label :facebook_account, "Facebook Account" %>
+             <%= f.radio_button :facebook_account, 'yes' %> Yes
+             <%= f.radio_button :facebook_account, 'no' %> No
+          <b>20.</b>  <%= f.label :whatsup_usage, "Whatsup Usage" %>
+            <%= f.radio_button :whatsup_usage, 'yes' %> Yes
+       </p>
+       <p>
+          <b>21.</b>  <%= f.label :email_id, "Email Id" %>
+          <%= f.email_field :email_id %>
+       </p>
+
+      <h2>Which are your choice of 'incredible brand'</h2>
+       <p>
+          <b>22.</b>  <%= f.label :mobile_phone, "Mobile Phone" %>
+               <% ['samsung','lava','micromax','nokia'].each do |mobile_phone| %>
+                 <%= f.radio_button 'mobile_phone', mobile_phone %>
+                     <%= mobile_phone%>
+               <% end %>
+       </p>              
+ <div class="actions">
+    <%= f.submit %>
+  </div>
+
+<% end %>
+
+<!-- <script type="text/javascript">
+  
+$('#new_survey_datum').submit(function(e) {
+            e.preventDefault();
+            if(!$('#survey_datum_phone_no').val().match('[0-9]{10}'))  {
+                alert("Please put 10 digit mobile number");
+                return;
+            }  
+
+        });
+</script> -->

@@ -1,0 +1,2 @@
+json.extract! survey_datum, :id, :state, :city, :geography, :name, :phone_no, :address, :number_of_family_member, :gender, :age, :caste, :family_montly_income, :occupation, :monthly_recharge_spend, :internet_usage, :hospital, :school, :vehicle, :computer_usage, :whatsup_usage, :email_id, :mobile_phone, :facebook_account, :created_at, :updated_at
+json.url survey_datum_url(survey_datum, format: :json)
