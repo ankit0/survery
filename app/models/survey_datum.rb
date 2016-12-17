@@ -3,5 +3,5 @@ class SurveyDatum < ApplicationRecord
                  :numericality => true,
                  :length => { :minimum => 10, :maximum => 15 }
     validates_format_of :email_id, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i    
-    validates_format_of :name, :with => /\w+/, :message => "can only contain characters"         
+    validates_format_of :name, :with => /\w+/, :message => "can only contain characters"  
 end
